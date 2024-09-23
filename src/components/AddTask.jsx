@@ -2,7 +2,7 @@ import React from 'react'
 
 function AddTask() {
   return (
-    <h1>AddTaskkkk</h1>
+    <h1>AddTask</h1>
   )
 }
 

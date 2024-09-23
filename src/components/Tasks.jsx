@@ -1,10 +1,16 @@
 
-
-function Tasks() {
+function Tasks(props) {
   return (
-    <div>
-     <h1>Tasks</h1>
-    </div>
+
+     <ul className="space-y-4">
+      {props.tasks.map((task)=> (
+      <li className="bg-slate-400 text-white p-2 rounded-md">{task.title}</li>
+
+     ))}
+     </ul>
+
+
+
   );
 }
 
