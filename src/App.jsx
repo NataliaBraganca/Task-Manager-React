@@ -24,11 +24,27 @@ function App() {
 
 ]);
 
+ function onTaskClick(taskId){
+  const newTasks = tasks.map(task => {
+    //NEED TO UPDATE THIS TASK
+    if (task.id === taskId) {
+      return {... task, isCompleted: !task.isCompleted}
+    }
+
+    //DO NOT NEED TO UPDATE THIS TAKS
+    return task
+  });
+
+  setTasks(newTasks)
+
+
+ }
+
   return (
     <div className= "w-screen h-screen bg-slate-500 flex justify-center p-6">
         <div className= "w-[500px]">
         <h1 className="text-3xl text-slate-100 font-bold text-center">Task Manager</h1>
-        <Tasks tasks= {tasks}/>
+        <Tasks tasks= {tasks} onTaskClick={onTaskClick}/>
         <AddTask />
         </div>
     </div>
