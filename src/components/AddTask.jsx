@@ -21,6 +21,10 @@ function AddTask({onAddTaskSubmit}) {
      />
      <button
      onClick={() => {
+      //verificar se o título e a descricao estao preenchidos
+      if (!title || !description) {
+        return alert ("Preencha o título e a descricao da terafa")
+      }
       onAddTaskSubmit(title, description)
       setTitle("")
       setDescription("")}}
