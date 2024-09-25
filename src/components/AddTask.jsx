@@ -22,7 +22,7 @@ function AddTask({onAddTaskSubmit}) {
      <button
      onClick={() => {
       //verificar se o título e a descricao estao preenchidos
-      if (!title || !description) {
+      if (!title.trim() || !description.trim()) {
         return alert ("Preencha o título e a descricao da terafa")
       }
       onAddTaskSubmit(title, description)
