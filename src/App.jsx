@@ -4,26 +4,13 @@ import AddTask from './components/AddTask';
 import { v4 } from 'uuid';
 
 function App() {
-  const [tasks, setTasks] = React.useState([{
-    id: 1,
-    title: "Study React",
-    description: "Study React to be a better Front-End developer",
-    isCompleted: false
-  },
-  {
-    id: 2,
-    title: "Study German",
-    description: "Study German to be a better Front-End developer",
-    isCompleted: false
-  },
-  {
-    id: 3,
-    title: "Study Ruby on Rails",
-    description: "Study React to be a better Front-End developer",
-    isCompleted: false
-  },
+  const [tasks, setTasks] = React.useState(
+    JSON.parse(localStorage.getItem("tasks")) || []);
 
-]);
+
+React.useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}, [tasks]);
 
  function onTaskClick(taskId){
   const newTasks = tasks.map(task => {
