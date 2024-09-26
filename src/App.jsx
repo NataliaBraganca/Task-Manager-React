@@ -5,10 +5,31 @@ import { v4 } from 'uuid';
 
 function App() {
   const [tasks, setTasks] = React.useState(
-    JSON.parse(localStorage.getItem("tasks")) || []);
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
+  React.useEffect(() => {
+    const fetchTasks = async () => {
+      // CHAMAR A API
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+          {
+            method: "GET", //default
+          }
+        );
 
-React.useEffect(() => {
+      //PEGAR OS DADOS QUE ELA RETORNA
+      const data = await response.json();
+      console.log(data)
+      //ARMAZENAR/PERSISTIR ESSES DADOS NO STATE
+      setTasks(data)
+    };
+     fetchTasks();
+    }, // Quando o segundo parametro é uma lista vazia, a funçao so é executado 1x
+    //quando o user acessa a aplicação.
+     []);
+
+ React.useEffect(() => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }, [tasks]);
 
