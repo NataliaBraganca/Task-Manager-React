@@ -24,7 +24,8 @@ function App() {
       //ARMAZENAR/PERSISTIR ESSES DADOS NO STATE
       setTasks(data)
     };
-     fetchTasks();
+    //se quiser, pode chamar a API para pegar as tarefas.
+     //fetchTasks();
     }, // Quando o segundo parametro é uma lista vazia, a funçao so é executado 1x
     //quando o user acessa a aplicação.
      []);
